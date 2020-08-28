@@ -1,0 +1,16 @@
+build
+out
+libs
+*.iml
+*.ipr
+*.txt
+*.bat
+*.iws
+gradlew
+*.xml
+gradle
+target
+eclipse
+build.gradle
+.DS_Store
+.gardle
