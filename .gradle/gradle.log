@@ -17,7 +17,7 @@ Warning, useNotchSrg() is deprecated! You should use mappingType instead.Warning
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava UP-TO-DATE
+:sourceMainJava
 :compileJavaNote: /Users/Tim/Documents/Minecraft/Scammer Radar/GrieferGames Scammer Radar-1.12.2/build/sources/main/java/de/newH1VE/griefergames/GrieferGames.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 
@@ -38,12 +38,13 @@ Note: Recompile with -Xlint:deprecation for details.
 :extractAnnotationsJar
 :extractRangemapReplacedMain
 /Users/Tim/Documents/Minecraft/Scammer Radar/GrieferGames Scammer Radar-1.12.2/build/sources/main/java
-:retromapReplacedMain UP-TO-DATE
-:sourceJar UP-TO-DATE
+:retromapReplacedMain
+remapping source...
+:sourceJar
 :assemble
 :check UP-TO-DATE
 :build
 
 BUILD SUCCESSFUL
 
-Total time: 35.503 secs
+Total time: 14.731 secs

@@ -196,6 +196,7 @@ public class AntiScammer extends Chat {
             try {
 
                 getHelper().updateScammerLists();
+                getHelper().joinScammerLists();
 
                 printPrefixLine();
                 getApi().displayMessageInChat(ModColor.WHITE + "Liste wurde aktualisiert.");

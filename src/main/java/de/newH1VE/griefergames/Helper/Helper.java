@@ -176,10 +176,10 @@ public class Helper {
         List<Scammer> localScammerList = GrieferGames.getAntiscammer().getLocalScammerList();
 
         for (int i = 0; i<onlineScammerList.size(); i++)
-            scammerList.add(onlineScammerList.get(i).name);
+            scammerList.add(onlineScammerList.get(i).name.toLowerCase());
 
         for (int i = 0; i<localScammerList.size(); i++)
-            scammerList.add(localScammerList.get(i).name);
+            scammerList.add(localScammerList.get(i).name.toLowerCase());
 
         GrieferGames.getAntiscammer().setScammerList(scammerList);
     }
