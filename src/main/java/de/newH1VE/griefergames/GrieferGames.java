@@ -224,7 +224,7 @@ public class GrieferGames extends LabyModAddon {
         System.out.println("[GrieferGames AntiScammer] enabled.");
 
         // restrict access by time
-        final LocalDateTime deactivate = LocalDateTime.of(2020, 9, 10, 23, 59);
+        //final LocalDateTime deactivate = LocalDateTime.of(2020, 9, 10, 23, 59);
 
         //setup helper
         setHelper(new Helper());
@@ -260,9 +260,9 @@ public class GrieferGames extends LabyModAddon {
 
         this.getApi().getEventManager().register(new MessageModifyChatEvent() {
             public Object onModifyChatMessage(Object o) {
-                LocalDateTime now = LocalDateTime.now();
-                if(now.isAfter(deactivate))
-                setModEnabled(false);
+               // LocalDateTime now = LocalDateTime.now();
+               // if(now.isAfter(deactivate))
+               // setModEnabled(false);
 
                 if (isModEnabled())
                     return modifyChatMessage(o);
@@ -279,9 +279,9 @@ public class GrieferGames extends LabyModAddon {
 
         getApi().getEventManager().register(new MessageSendEvent() {
             public boolean onSend(String message) {
-                LocalDateTime now = LocalDateTime.now();
-                if(now.isAfter(deactivate))
-                    setModEnabled(false);
+               // LocalDateTime now = LocalDateTime.now();
+               // if(now.isAfter(deactivate))
+               //     setModEnabled(false);
 
                 if (!(isModEnabled() && getDoAntiScammer()))
                     return false;
@@ -296,9 +296,9 @@ public class GrieferGames extends LabyModAddon {
 
         getApi().getEventManager().register(new MessageReceiveEvent() {
             public boolean onReceive(String formatted, String unformatted) {
-                LocalDateTime now = LocalDateTime.now();
-                if(now.isAfter(deactivate))
-                    setModEnabled(false);
+               // LocalDateTime now = LocalDateTime.now();
+               // if(now.isAfter(deactivate))
+               //     setModEnabled(false);
 
                 if (!(isModEnabled() && getDoAntiScammer()))
                     return false;
