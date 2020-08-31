@@ -160,6 +160,7 @@ public class Helper {
                     scammerList.add(scammer.name.toLowerCase());
                 }
             }
+
             if(_scammerFile.equals(onlineScammerFile))
                 GrieferGames.getAntiscammer().setOnlineScammerList(_scammerList);
             else
@@ -177,11 +178,6 @@ public class Helper {
 
         for (int i = 0; i<onlineScammerList.size(); i++)
             scammerList.add(onlineScammerList.get(i).name.toLowerCase());
-
-        if(localScammerList.size()<1) {
-            GrieferGames.getAntiscammer().setScammerList(scammerList);
-            return;
-        }
 
         for (int i = 0; i<localScammerList.size(); i++)
             scammerList.add(localScammerList.get(i).name.toLowerCase());
