@@ -1,4 +1,4 @@
-package de.newH1VE.griefergames.Chat;
+package de.newH1VE.griefergames.chat;
 
 import static net.labymod.utils.ModColor.BOLD;
 
@@ -14,7 +14,7 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
-import de.newH1VE.griefergames.AntiScammer.Scammer;
+import de.newH1VE.griefergames.antiScammer.Scammer;
 import net.labymod.core.LabyModCore;
 import net.labymod.utils.ModColor;
 import net.labymod.utils.UUIDFetcher;

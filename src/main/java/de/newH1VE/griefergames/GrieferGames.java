@@ -2,13 +2,12 @@ package de.newH1VE.griefergames;
 
 
 import java.io.File;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import de.newH1VE.griefergames.Events.OnTickEvent;
-import de.newH1VE.griefergames.Chat.AntiScammer;
+import de.newH1VE.griefergames.chat.AntiScammer;
 import de.newH1VE.griefergames.Enum.ColorEnum;
 import de.newH1VE.griefergames.Helper.Helper;
 

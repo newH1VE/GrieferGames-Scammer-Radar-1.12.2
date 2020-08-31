@@ -1,4 +1,4 @@
-package de.newH1VE.griefergames.Chat;
+package de.newH1VE.griefergames.chat;
 
 import de.newH1VE.griefergames.GrieferGames;
 

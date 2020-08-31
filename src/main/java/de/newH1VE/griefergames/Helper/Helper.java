@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import de.newH1VE.griefergames.GrieferGames;
-import de.newH1VE.griefergames.AntiScammer.Scammer;
+import de.newH1VE.griefergames.antiScammer.Scammer;
 import net.labymod.core.LabyModCore;
 import net.labymod.utils.ModColor;
 import net.labymod.utils.UUIDFetcher;
