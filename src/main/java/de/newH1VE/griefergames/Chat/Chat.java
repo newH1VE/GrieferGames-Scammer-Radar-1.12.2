@@ -1,8 +1,8 @@
-package de.newH1VE.griefergames.chat;
+package de.newH1VE.griefergames.Chat;
 
 import de.newH1VE.griefergames.GrieferGames;
 
-import de.newH1VE.griefergames.helper.Helper;
+import de.newH1VE.griefergames.Helper.Helper;
 import net.labymod.api.LabyModAPI;
 import net.labymod.servermanager.ChatDisplayAction;
 

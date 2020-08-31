@@ -1,4 +1,4 @@
-package de.newH1VE.griefergames.chat;
+package de.newH1VE.griefergames.Chat;
 
 import static net.labymod.utils.ModColor.BOLD;
 
@@ -14,7 +14,7 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
-import de.newH1VE.griefergames.antiScammer.Scammer;
+import de.newH1VE.griefergames.AntiScammer.Scammer;
 import net.labymod.core.LabyModCore;
 import net.labymod.utils.ModColor;
 import net.labymod.utils.UUIDFetcher;
@@ -168,9 +168,10 @@ public class AntiScammer extends Chat {
             Thread thread = new Thread() {
                 public void run() {
                     try {
-                        scammerList = new ArrayList<String>();
+
                         onlineScammerList = getHelper().loadScammerFile(onlineScammerFile);
                         localScammerList = getHelper().loadScammerFile(localScammerFile);
+                        getHelper().joinScammerLists();
 
                         getApi().displayMessageInChat(ModColor.WHITE + "Liste wurde neu geladen.");
                         printPrefixLine();

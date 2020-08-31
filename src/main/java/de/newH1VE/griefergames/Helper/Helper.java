@@ -1,10 +1,10 @@
-package de.newH1VE.griefergames.helper;
+package de.newH1VE.griefergames.Helper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import de.newH1VE.griefergames.GrieferGames;
-import de.newH1VE.griefergames.antiScammer.Scammer;
+import de.newH1VE.griefergames.AntiScammer.Scammer;
 import net.labymod.core.LabyModCore;
 import net.labymod.utils.ModColor;
 import net.labymod.utils.UUIDFetcher;
@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
-
-import static net.labymod.utils.ModColor.BOLD;
 
 public class Helper {
 
@@ -160,19 +158,30 @@ public class Helper {
             for (Scammer scammer : _scammerList) {
                 if (!scammerList.contains(scammer.name.toLowerCase())) {
                     scammerList.add(scammer.name.toLowerCase());
-                    System.out.println(scammer.name);
                 }
             }
-            if(isOnlineScammer == true)
+            if(_scammerFile.equals(onlineScammerFile))
                 GrieferGames.getAntiscammer().setOnlineScammerList(_scammerList);
             else
                 GrieferGames.getAntiscammer().setLocalScammerList(_scammerList);
 
-            GrieferGames.getAntiscammer().setScammerList(scammerList);
-
             return _scammerList;
         }
         return new ArrayList<Scammer>();
+    }
+
+    public void joinScammerLists() {
+        List<String> scammerList = new ArrayList<String>();
+        List<Scammer> onlineScammerList = GrieferGames.getAntiscammer().getOnlineScammerList();
+        List<Scammer> localScammerList = GrieferGames.getAntiscammer().getLocalScammerList();
+
+        for (int i = 0; i<onlineScammerList.size(); i++)
+            scammerList.add(onlineScammerList.get(i).name);
+
+        for (int i = 0; i<localScammerList.size(); i++)
+            scammerList.add(localScammerList.get(i).name);
+
+        GrieferGames.getAntiscammer().setScammerList(scammerList);
     }
 
     public void saveScammerFile(List<Scammer> scammerList, File scammerFile) {

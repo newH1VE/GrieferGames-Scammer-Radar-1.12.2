@@ -8,11 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import de.newH1VE.griefergames.Events.OnTickEvent;
-import de.newH1VE.griefergames.chat.AntiScammer;
+import de.newH1VE.griefergames.Chat.AntiScammer;
 import de.newH1VE.griefergames.Enum.ColorEnum;
-import de.newH1VE.griefergames.helper.Helper;
+import de.newH1VE.griefergames.Helper.Helper;
 
-import de.newH1VE.griefergames.helper.Helper;
 import net.labymod.api.LabyModAddon;
 import net.labymod.api.events.MessageModifyChatEvent;
 import net.labymod.api.events.MessageReceiveEvent;
@@ -28,10 +27,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
-
-import org.lwjgl.input.Keyboard;
 
 public class GrieferGames extends LabyModAddon {
     private static GrieferGames griefergames;
@@ -229,15 +224,16 @@ public class GrieferGames extends LabyModAddon {
         System.out.println("[GrieferGames AntiScammer] enabled.");
 
         // restrict access by time
-        //final LocalDateTime deactivate = LocalDateTime.of(2020, 8, 30, 23, 59);
+        final LocalDateTime deactivate = LocalDateTime.of(2020, 9, 10, 23, 59);
 
         //setup helper
         setHelper(new Helper());
 
 
         // initial load of scammerFiles
-        getHelper().loadScammerFile(localScammerFile);
         getHelper().loadScammerFile(onlineScammerFile);
+        getHelper().loadScammerFile(localScammerFile);
+        getHelper().joinScammerLists();
 
         // set ip
         setServerIp("griefergames.net");
@@ -265,8 +261,8 @@ public class GrieferGames extends LabyModAddon {
         this.getApi().getEventManager().register(new MessageModifyChatEvent() {
             public Object onModifyChatMessage(Object o) {
                 LocalDateTime now = LocalDateTime.now();
-                //if(now.isAfter(deactivate))
-                //setModEnabled(false);
+                if(now.isAfter(deactivate))
+                setModEnabled(false);
 
                 if (isModEnabled())
                     return modifyChatMessage(o);
@@ -284,8 +280,8 @@ public class GrieferGames extends LabyModAddon {
         getApi().getEventManager().register(new MessageSendEvent() {
             public boolean onSend(String message) {
                 LocalDateTime now = LocalDateTime.now();
-                //if(now.isAfter(deactivate))
-                  //  setModEnabled(false);
+                if(now.isAfter(deactivate))
+                    setModEnabled(false);
 
                 if (!(isModEnabled() && getDoAntiScammer()))
                     return false;
@@ -301,8 +297,8 @@ public class GrieferGames extends LabyModAddon {
         getApi().getEventManager().register(new MessageReceiveEvent() {
             public boolean onReceive(String formatted, String unformatted) {
                 LocalDateTime now = LocalDateTime.now();
-                //if(now.isAfter(deactivate))
-                  //  setModEnabled(false);
+                if(now.isAfter(deactivate))
+                    setModEnabled(false);
 
                 if (!(isModEnabled() && getDoAntiScammer()))
                     return false;

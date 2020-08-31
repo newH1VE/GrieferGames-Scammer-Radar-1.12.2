@@ -1,4 +1,4 @@
-package de.newH1VE.griefergames.antiScammer;
+package de.newH1VE.griefergames.AntiScammer;
 
 public class Scammer {
 	public String name;

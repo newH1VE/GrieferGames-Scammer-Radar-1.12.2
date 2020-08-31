@@ -2,6 +2,7 @@ package de.newH1VE.griefergames.Events;
 
 import de.newH1VE.griefergames.GrieferGames;
 import net.labymod.core.LabyModCore;
+import net.labymod.utils.ModColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -12,6 +13,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -38,7 +40,19 @@ public class OnTickEvent {
 
                 thread.start();
             } finally {
-                lock.unlock();
+                Thread thread = new Thread() {
+                    public void run() {
+                        try {
+                            sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        lock.unlock();
+                    }
+                };
+
+                thread.start();
+
             }
 
         }
