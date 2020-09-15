@@ -2,7 +2,6 @@ package de.newH1VE.griefergames.Events;
 
 import de.newH1VE.griefergames.GrieferGames;
 import net.labymod.core.LabyModCore;
-import net.labymod.utils.ModColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -11,53 +10,30 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class OnTickEvent {
-
-    private ReentrantLock lock = new ReentrantLock();
-
+public class OnKeyEvent {
 
     @SubscribeEvent
-    public void onTick(TickEvent.ClientTickEvent event) {
-        if (Minecraft.getMinecraft().gameSettings.keyBindPlayerList.isKeyDown() && GrieferGames.getGrieferGames().isModEnabled() && GrieferGames.getGrieferGames().isTabListEnabled()
-                && !Minecraft.getMinecraft().isSingleplayer()) {
+    public void onPress(InputEvent.KeyInputEvent event) {
 
-            lock.lock();
-            try {
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        modifyTabList();
+        if (Minecraft.getMinecraft().gameSettings.keyBindPlayerList.isPressed() && GrieferGames.getGrieferGames().isModEnabled() && GrieferGames.getGrieferGames().isTabListEnabled()) {
 
-                    }
-                });
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    modifyTabList();
 
-                thread.start();
-            } finally {
-                Thread thread = new Thread() {
-                    public void run() {
-                        try {
-                            sleep(3000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        lock.unlock();
-                    }
-                };
+                }
+            });
 
-                thread.start();
-
-            }
-
+            thread.start();
         }
-
     }
+
 
     public void modifyTabList() {
 
