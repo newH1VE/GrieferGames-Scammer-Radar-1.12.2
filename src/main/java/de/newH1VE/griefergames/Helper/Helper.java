@@ -171,7 +171,7 @@ public class Helper {
         return new ArrayList<Scammer>();
     }
 
-    public void joinScammerLists() {
+    public List<String> joinScammerLists() {
         List<String> scammerList = new ArrayList<String>();
         List<Scammer> onlineScammerList = GrieferGames.getAntiscammer().getOnlineScammerList();
         List<Scammer> localScammerList = GrieferGames.getAntiscammer().getLocalScammerList();
@@ -182,7 +182,7 @@ public class Helper {
         for (int i = 0; i<localScammerList.size(); i++)
             scammerList.add(localScammerList.get(i).name.toLowerCase());
 
-        GrieferGames.getAntiscammer().setScammerList(scammerList);
+        return scammerList;
     }
 
     public void saveScammerFile(List<Scammer> scammerList, File scammerFile) {

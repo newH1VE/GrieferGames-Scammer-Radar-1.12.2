@@ -171,7 +171,7 @@ public class AntiScammer extends Chat {
 
                         onlineScammerList = getHelper().loadScammerFile(onlineScammerFile);
                         localScammerList = getHelper().loadScammerFile(localScammerFile);
-                        getHelper().joinScammerLists();
+                        scammerList = getHelper().joinScammerLists();
 
                         getApi().displayMessageInChat(ModColor.WHITE + "Liste wurde neu geladen.");
                         printPrefixLine();
@@ -196,7 +196,7 @@ public class AntiScammer extends Chat {
             try {
 
                 getHelper().updateScammerLists();
-                getHelper().joinScammerLists();
+                scammerList = getHelper().joinScammerLists();
 
                 printPrefixLine();
                 getApi().displayMessageInChat(ModColor.WHITE + "Liste wurde aktualisiert.");
