@@ -11,6 +11,5 @@ gradlew
 gradle
 target
 eclipse
-build.gradle
 .DS_Store
 .gardle
